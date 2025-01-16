@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
-public class MoveObjects : MonoBehaviour
+public class SetupRotateObjects : MonoBehaviour
 {
     [SerializeField] GameObject[] gameObjects;
 
@@ -19,21 +19,21 @@ public class MoveObjects : MonoBehaviour
         var enumCount = enumNames.Length;
         for (int i = 0; i < gameObjects.Length && i < enumCount; i++)
         {
-            SimpleMoveLerp comp;
-            if (gameObjects[i].TryGetComponent<SimpleMoveLerp>(out comp))
+            SimpleRotateLerp comp;
+            if (gameObjects[i].TryGetComponent<SimpleRotateLerp>(out comp))
             {
                 comp.easingType = (EasingFunctions.EasingType)i;
             }
             else
             {
-                comp = gameObjects[i].AddComponent<SimpleMoveLerp>();
+                comp = gameObjects[i].AddComponent<SimpleRotateLerp>();
                 comp.easingType = (EasingFunctions.EasingType)i;
             }
 
             gameObjects[i].transform.localPosition = new Vector3(0f, 0f, i * 4);
             gameObjects[i].name = enumNames[i];
 
-            gameObjects[i].GetComponent<MeshRenderer>().material.color = new Color(random.NextFloat(0,1), random.NextFloat(0, 1), random.NextFloat(0, 1));
+            gameObjects[i].GetComponent<MeshRenderer>().material.color = new Color(random.NextFloat(0, 1), random.NextFloat(0, 1), random.NextFloat(0, 1));
         }
     }
 }

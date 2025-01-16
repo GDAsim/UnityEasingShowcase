@@ -90,7 +90,7 @@ public static class EasingFunctions
 
     public static float BounceInOut(float t) => t < 0.5f ?
         (1 - BounceOut(1 - 2 * t)) / 2 :
-        (1 - BounceOut(2 * t - 1)) / 2;
+        (1 + BounceOut(2 * t - 1)) / 2;
 
     public enum EasingType
     {

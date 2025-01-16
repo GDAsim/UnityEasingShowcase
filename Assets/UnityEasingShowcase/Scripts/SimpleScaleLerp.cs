@@ -12,7 +12,7 @@ public class SimpleScaleLerp : MonoBehaviour
     {
         startPos = transform.localPosition;
         startScale = Vector3.one;
-        endScale = startScale + new Vector3(0, 10, 0);
+        endScale = startScale + new Vector3(0, 5, 0);
     }
     void Update()
     {

@@ -1,9 +1,8 @@
 using System;
-using TMPro;
 using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
-public class RotateObjects : MonoBehaviour
+public class SetupScaleObjects : MonoBehaviour
 {
     [SerializeField] GameObject[] gameObjects;
 
@@ -20,14 +19,14 @@ public class RotateObjects : MonoBehaviour
         var enumCount = enumNames.Length;
         for (int i = 0; i < gameObjects.Length && i < enumCount; i++)
         {
-            SimpleRotateLerp comp;
-            if (gameObjects[i].TryGetComponent<SimpleRotateLerp>(out comp))
+            SimpleScaleLerp comp;
+            if (gameObjects[i].TryGetComponent<SimpleScaleLerp>(out comp))
             {
                 comp.easingType = (EasingFunctions.EasingType)i;
             }
             else
             {
-                comp = gameObjects[i].AddComponent<SimpleRotateLerp>();
+                comp = gameObjects[i].AddComponent<SimpleScaleLerp>();
                 comp.easingType = (EasingFunctions.EasingType)i;
             }
 
