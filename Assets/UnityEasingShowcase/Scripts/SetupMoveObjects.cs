@@ -15,19 +15,19 @@ public class SetupMoveObjects : MonoBehaviour
     void ApplyEasingToGameObjects()
     {
         var random = new Random(1);
-        var enumNames = Enum.GetNames(typeof(EasingFunctions.EasingType));
+        var enumNames = Enum.GetNames(typeof(Easing.EasingType));
         var enumCount = enumNames.Length;
         for (int i = 0; i < gameObjects.Length && i < enumCount; i++)
         {
             SimpleMoveLerp comp;
             if (gameObjects[i].TryGetComponent<SimpleMoveLerp>(out comp))
             {
-                comp.easingType = (EasingFunctions.EasingType)i;
+                comp.easingType = (Easing.EasingType)i;
             }
             else
             {
                 comp = gameObjects[i].AddComponent<SimpleMoveLerp>();
-                comp.easingType = (EasingFunctions.EasingType)i;
+                comp.easingType = (Easing.EasingType)i;
             }
 
             gameObjects[i].transform.localPosition = new Vector3(0f, 0f, i * 4);

@@ -3,7 +3,7 @@ using UnityEngine;
 public class SimpleMoveLerp : MonoBehaviour
 {
     [SerializeField, HideInInspector] Vector3 Delta = new Vector3(10, 0, 0);
-    public EasingFunctions.EasingType easingType = EasingFunctions.EasingType.Linear;
+    public Easing.EasingType easingType = Easing.EasingType.Linear;
 
     Vector3 startPos;
     Vector3 endPos;
@@ -17,7 +17,7 @@ public class SimpleMoveLerp : MonoBehaviour
     {
         var pingpongt = Mathf.PingPong(Time.time, 1);
 
-        var t = EasingFunctions.ApplyEasing(easingType, pingpongt);
+        var t = Easing.ApplyEasing(easingType, pingpongt);
 
         transform.localPosition = Vector3.LerpUnclamped(startPos, endPos, t);
     }

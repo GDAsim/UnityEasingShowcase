@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SimpleRotateLerp : MonoBehaviour
 {
-    public EasingFunctions.EasingType easingType = EasingFunctions.EasingType.Linear;
+    public Easing.EasingType easingType = Easing.EasingType.Linear;
 
     Quaternion startRot;
     Quaternion endRot;
@@ -16,7 +16,7 @@ public class SimpleRotateLerp : MonoBehaviour
     {
         var pingpongt = Mathf.PingPong(Time.time, 1);
 
-        var t = EasingFunctions.ApplyEasing(easingType, pingpongt);
+        var t = Easing.ApplyEasing(easingType, pingpongt);
 
         transform.rotation = Quaternion.LerpUnclamped(startRot, endRot, t);
     }

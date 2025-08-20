@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SimpleScaleLerp : MonoBehaviour
 {
-    public EasingFunctions.EasingType easingType = EasingFunctions.EasingType.Linear;
+    public Easing.EasingType easingType = Easing.EasingType.Linear;
 
     Vector3 startPos;
     Vector3 startScale;
@@ -18,7 +18,7 @@ public class SimpleScaleLerp : MonoBehaviour
     {
         var pingpongt = Mathf.PingPong(Time.time, 1);
 
-        var t = EasingFunctions.ApplyEasing(easingType, pingpongt);
+        var t = Easing.ApplyEasing(easingType, pingpongt);
 
         var newScale = Vector3.LerpUnclamped(startScale, endScale, t);
         var scalediff = newScale - startScale;

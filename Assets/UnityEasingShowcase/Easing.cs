@@ -4,7 +4,7 @@ using System;
 /// Uses Alternate/Expanded Form to reduce number multiplication
 /// According to https://easings.net/ & Using Math Calculator to simplfy
 /// </summary>
-public static class EasingFunctions
+public static class Easing
 {
     public static float Linear(float t) => t;
 
