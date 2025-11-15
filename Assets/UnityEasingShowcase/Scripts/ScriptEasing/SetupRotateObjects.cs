@@ -33,7 +33,13 @@ public class SetupRotateObjects : MonoBehaviour
             gameObjects[i].transform.localPosition = new Vector3(0f, 0f, i * 4);
             gameObjects[i].name = enumNames[i];
 
-            gameObjects[i].GetComponent<MeshRenderer>().material.color = new Color(random.NextFloat(0, 1), random.NextFloat(0, 1), random.NextFloat(0, 1));
+#if UNITY_EDITOR
+            var mat = gameObjects[i].GetComponent<MeshRenderer>().material;
+#else
+            var mat = gameObjects[i].GetComponent<MeshRenderer>().sharedMaterial;
+#endif
+
+            mat.color = new Color(random.NextFloat(0, 1), random.NextFloat(0, 1), random.NextFloat(0, 1));
         }
     }
 }
